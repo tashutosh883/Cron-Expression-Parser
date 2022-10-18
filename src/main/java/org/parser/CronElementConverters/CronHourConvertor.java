@@ -1,2 +1,10 @@
-package org.parser.CronElementConverters;public class CronHourConvertor {
+package org.parser.CronElementConverters;
+
+import org.parser.models.CronElementType;
+
+public class CronHourConvertor extends CronElementConvertor{
+    public CronHourConvertor() {
+        super(CronElementType.HOUR);
+    }
+
 }

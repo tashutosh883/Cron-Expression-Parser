@@ -1,2 +1,5 @@
-package org.parser.models.cron_parsers;public interface CronParser {
+package org.parser.cron_parsers;
+
+public interface CronParser {
+    String parse(String expression);
 }
