@@ -6,4 +6,6 @@ public class Constants {
     public static final String STAR = "*";
     public static final String SLASH = "/";
 
+    public static final String FORMATTER = "%-20s%-20s";
+
 }

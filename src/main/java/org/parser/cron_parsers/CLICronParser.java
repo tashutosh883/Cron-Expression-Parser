@@ -1,6 +1,6 @@
 package org.parser.cron_parsers;
 
-import lombok.extern.slf4j.Slf4j;
+
 import org.parser.CronElementConverters.CronElementConverterFactory;
 import org.parser.exceptions.NoSuchElementConvertorException;
 import org.parser.exceptions.NoSuchElementPositionException;
@@ -10,19 +10,17 @@ import org.parser.models.CronElementType;
 import java.util.ArrayList;
 import java.util.List;
 
-@Slf4j
 public class CLICronParser implements CronParser {
 
     @Override
     public String parse(String expression) {
-        String[] exprParts = expression.split(" ");
+        String[] exprParts = expression.split(" ", 6);
         List<String> humanReadableCronPart = new ArrayList<>();
         for (int i = 0; i < exprParts.length; i++) {
             try {
                 humanReadableCronPart.add(convertToHumanReadableText(exprParts[i], i));
             } catch (NoSuchSpecialCharPatternException | NoSuchElementPositionException |
                      NoSuchElementConvertorException e) {
-                log.error(e.getErrorString(), e);
                 throw new RuntimeException(e.getErrorString());
             }
         }

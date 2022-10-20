@@ -13,7 +13,7 @@ public class SlashConvertor implements CronSpecialCharacterParser {
         int end = Integer.parseInt(parts[1]);
         int step = Integer.parseInt(parts[2]);
         List<String> valueResult = new ArrayList<>();
-        for(int i=start;i<= end; i+=step){
+        for (int i = start; i <= end; i += step) {
             valueResult.add(String.valueOf(i));
         }
         return valueResult;

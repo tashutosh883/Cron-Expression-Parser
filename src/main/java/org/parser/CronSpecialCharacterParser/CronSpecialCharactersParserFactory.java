@@ -5,7 +5,7 @@ import org.parser.exceptions.NoSuchSpecialCharPatternException;
 
 public class CronSpecialCharactersParserFactory {
     public static CronSpecialCharacterParser getParser(String cronFieldStr) throws NoSuchSpecialCharPatternException {
-         if (isStarSlashType(cronFieldStr)) {
+        if (isStarSlashType(cronFieldStr)) {
             return new StarSlashConvertor();
         }
         if (isCommaType(cronFieldStr)) {
@@ -21,7 +21,7 @@ public class CronSpecialCharactersParserFactory {
         if (isSlashType(cronFieldStr)) {
             return new SlashConvertor();
         }
-        if(isSingleElementType(cronFieldStr)){
+        if (isSingleElementType(cronFieldStr)) {
             return new SingleElementConvertor();
 
         }
@@ -29,7 +29,12 @@ public class CronSpecialCharactersParserFactory {
     }
 
     private static boolean isSingleElementType(String cronFieldStr) {
-        return false;
+        try {
+            Integer.parseInt(cronFieldStr);
+            return true;
+        } catch (NumberFormatException exception) {
+            return false;
+        }
     }
 
     private static boolean isSlashType(String cronFieldStr) {
