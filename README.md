@@ -28,6 +28,6 @@
 ```
 1. Clone the repository
 2. mvn clean install in source root
-3. cd /target
+3. cd target
 4. java -jar cron-expression-parser-1.0-SNAPSHOT.jar '<cron>'
 ```
